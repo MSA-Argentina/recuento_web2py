@@ -74,7 +74,7 @@ INSERT INTO listas (nro_lista) SELECT DISTINCT nro_lista
                                FROM  tmp_datos_publicos ORDER BY nro_lista;
 UPDATE listas SET descripcion = (SELECT MIN(T.partido) FROM  tmp_datos_publicos T 
                                  WHERE T.nro_lista = listas.nro_lista);
-UPDATE listas SET idx_fila = id_lista;
+UPDATE listas SET idx_fila = id_lista, descripcion_corta=SUBSTRING(descripcion FROM 1 FOR 25);
 /* votos nulos / blancos */
 UPDATE listas SET positivo = 'T' WHERE nro_lista NOT IN ('992', '991'); 
 UPDATE listas SET positivo = 'F' WHERE nro_lista IN ('992', '991'); 
@@ -137,6 +137,16 @@ SELECT P.id_planilla, C.id_cargo, L.id_lista, T.votos
                                         AND UP.clase='Provincia') 
   INNER JOIN planillas P on P.id_ubicacion = U.id_ubicacion
 ORDER BY U.id_ubicacion;
+
+
+/* Listas y cargos habilitados por ubicación (por ahora, copia de planillas) */ 
+
+DELETE FROM carg_list_ubic;
+ALTER SEQUENCE carg_list_ubic_id_seq RESTART 1; /* reinicio la secuencia autonumerica */
+INSERT INTO carg_list_ubic (id_ubicacion, id_cargo, id_lista)
+SELECT P.id_ubicacion, PD.id_cargo, PD.id_lista  
+FROM planillas P 
+INNER JOIN planillas_det PD ON P.id_planilla = PD.id_planilla;
 
 
 COMMIT;
