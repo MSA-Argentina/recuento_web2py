@@ -8,18 +8,18 @@ msa = DAL(PG_CNNSTR, pool_size=10)
 
 # Constantes generales
 ESTADOS = ('Pendiente', 'Recibida', 'Verificar','OK', 'Publicada')
-CLASES = ('Provincia', 'Circuito', 'Localidad', 'Establecimiento', 'Mesa')
+CLASES = ('Pais', 'Provincia', 'Departamento') # ('Circuito', 'Escuela', 'Mesa')
 
 # Valores predeterminados para los formularios:
-UBICACION_RAIZ = "RN"
-CARGO_PRINCIPAL = "GOB"
+UBICACION_RAIZ = 1
+CARGO_PRINCIPAL = 1
 ESTADO_FINAL = ESTADOS[-1]
 
 # Tablas:
 
 msa.define_table('ubicaciones',
     Field('id_ubicacion', type='id'),
-    Field('id_ubicacion_padre', type='string', length=12),
+    Field('id_ubicacion_padre', type='reference ubicaciones'),
     Field('clase', type='string', length=30),
     Field('descripcion', type='string', length=100),
     Field('sexo', ),
@@ -35,7 +35,7 @@ msa.define_table('cargos',
 
 msa.define_table('listas',
     Field('id_lista', type='id', length=3),
-    Field('nro_lista', type='integer'),
+    Field('nro_lista', type='string', length=10),
     Field('descripcion', type='string', length=80),
     Field('idx_fila', type='integer', unique=True),
     Field('positivo', type='boolean'),
