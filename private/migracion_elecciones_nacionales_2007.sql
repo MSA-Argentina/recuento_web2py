@@ -75,6 +75,9 @@ INSERT INTO listas (nro_lista) SELECT DISTINCT nro_lista
 UPDATE listas SET descripcion = (SELECT MIN(T.partido) FROM  tmp_datos_publicos T 
                                  WHERE T.nro_lista = listas.nro_lista);
 UPDATE listas SET idx_fila = id_lista;
+/* votos nulos / blancos */
+UPDATE listas SET positivo = 'T' WHERE nro_lista NOT IN ('992', '991'); 
+UPDATE listas SET positivo = 'F' WHERE nro_lista IN ('992', '991'); 
 
 
 /* CARGOS */
@@ -134,6 +137,7 @@ SELECT P.id_planilla, C.id_cargo, L.id_lista, T.votos
                                         AND UP.clase='Provincia') 
   INNER JOIN planillas P on P.id_ubicacion = U.id_ubicacion
 ORDER BY U.id_ubicacion;
+
 
 COMMIT;
 
