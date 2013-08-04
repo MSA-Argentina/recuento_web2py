@@ -78,6 +78,7 @@ def cargar():
     id_planilla = request.vars.id_planilla or request.args[1]
     # busco los datos generales:
     q = msa.ubicaciones.id_ubicacion==msa.planillas.id_ubicacion
+    q &= msa.planillas.id_planilla == id_planilla
     ubicacion = msa(q).select(msa.ubicaciones.ALL).first()
     planilla = msa(msa.planillas.id_planilla==id_planilla).select().first()
     # busco el detalle y armo un dict para accederlo mas facilmente por id_cargo, id_lista
