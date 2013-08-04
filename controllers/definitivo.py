@@ -11,7 +11,7 @@ def listado():
     # preparo ubicaciones a elegir: [(id_ubicacion, descripcion)] 
     # exluyendo mesas (ultima clase)
     ubicaciones = msa(msa.ubicaciones.clase != CLASES[-1]).select()
-    ubicaciones = sorted([(row.id_ubicacion.strip(), 
+    ubicaciones = sorted([(row.id_ubicacion, 
                            "%s (%s)" % (row.descripcion, row.clase)) 
                           for row in ubicaciones]+[(None, "")])
 
@@ -75,13 +75,13 @@ def listado():
 def cargar():
     "Página para cargar votos (miniatura de la planilla y campos entrada)"
     # obtengo el parámetro pasado por variable en la url
-    id_planilla = request.vars.id_planilla
+    id_planilla = request.vars.id_planilla or request.args[1]
     # busco los datos generales:
     q = msa.ubicaciones.id_ubicacion==msa.planillas.id_ubicacion
     ubicacion = msa(q).select(msa.ubicaciones.ALL).first()
     planilla = msa(msa.planillas.id_planilla==id_planilla).select().first()
     # busco el detalle y armo un dict para accederlo mas facilmente por id_cargo, id_lista
-    dets = msa(msa.planillas_det.id_planilla==planilla.id_planilla).select()
+    dets = msa(msa.planillas_det.id_planilla==id_planilla).select()
     detalles = dict([((det.id_cargo, det.id_lista), det.votos_definitivos) for det in dets])
 
     # busco recursivamente los cargo_list_ubic (jerarquias con postulantes) 
