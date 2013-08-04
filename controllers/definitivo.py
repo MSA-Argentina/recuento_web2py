@@ -9,8 +9,8 @@ def listado():
     reg_por_pagina = 100
     
     # preparo ubicaciones a elegir: [(id_ubicacion, descripcion)] 
-    # exluyendo mesas (ultima clase)
-    ubicaciones = msa(msa.ubicaciones.clase != CLASES[-1]).select()
+    # solo provincias (para listar departamentos dentro de ellas)
+    ubicaciones = msa(msa.ubicaciones.clase == CLASES[-2]).select()
     ubicaciones = sorted([(row.id_ubicacion, 
                            "%s (%s)" % (row.descripcion, row.clase)) 
                           for row in ubicaciones]+[(None, "")])
