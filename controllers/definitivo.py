@@ -168,7 +168,7 @@ def cargar():
         redirect(URL("listado"))
     elif form.errors:
         response.flash = 'revise los errores!'
-       
+
     return dict(planilla=planilla, ubicacion=ubicacion, detalles=detalles, 
                 form=form)
 
@@ -202,17 +202,23 @@ def thumbnail():
     q = msa.telegramas.id_planilla==id_planilla
     q &= msa.telegramas.estado=='Activa'
     img = msa(q).select().first()
-    # redimensiono la imagen (en memoria, usando Python Imaging Library)
-    from PIL import Image
-    im=Image.open(cStringIO.StringIO(img.imagen))   
-    im.thumbnail((nx,ny), Image.ANTIALIAS) 
-    s=cStringIO.StringIO() 
-    # y la convierto de formato 
-    im.save(s, 'PNG', quality=86) 
-    s.seek(0) 
+    if img:
+        # redimensiono la imagen (en memoria, usando Python Imaging Library)
+        from PIL import Image
+        im=Image.open(cStringIO.StringIO(img.imagen))   
+        im.thumbnail((nx,ny), Image.ANTIALIAS) 
+        s=cStringIO.StringIO() 
+        # y la convierto de formato 
+        im.save(s, 'PNG', quality=86) 
+        s.seek(0)
+        png = s.getvalue() 
+    else:
+        f = open(os.path.join(request.folder, 'private', 'sintelegrama.png'))
+        png = f.read()
+        f.close()
     # establezco los encabezados para la descarga
     response.headers['Content-Disposition']='attachment; filename=%s.png' % id_planilla
     response.headers['Content-Type']='image/png'
     # devuelvo los datos de la imagen
-    return s.getvalue()
+    return png
 
