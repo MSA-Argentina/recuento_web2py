@@ -1,0 +1,17 @@
+syntax: glob
+*.pyc
+*.pyo
+*.bak
+*~
+*.orig
+*.backup
+.directory
+#*
+databases/*
+sessions/*
+errors/*
+cache/*
+private/*
+uploads/*
+static/slideshow/*
+static/docs/*

@@ -1,0 +1,38 @@
+{{extend 'layout.html'}}
+<h1>Reportes</h1>
+<h2>Ubicación: {{=ubicacion.descripcion}}</h2>
+<h2>Cargo: {{=cargo.descripcion}}</h2>
+<h2>Resultado</h2>
+<table>
+<tr><th colspan="2">Lista</th><th>Votos</th><th>Porc.</th><th>Bancas</th></tr>
+{{for fila in tabla_resultado:}}
+<tr>
+<td>{{=fila['nro_lista']}}</td>
+<td>{{=fila['desc_lista']}}</td>
+<td>{{=fila['votos']}}</td>
+<td>{{=fila['porc']}}</td>
+<td>{{=fila['bancas_obtenidas']}}</td>
+</tr>
+{{pass}}
+</table>
+
+<h2>Candidatos Electos</h2>
+
+<table>
+<tr><th colspan="2">Lista</th><th>Candidato</th></tr>
+{{for fila in dhont_electos:}}
+<tr>
+<td>{{=listas[fila[0]]['nro_lista']}}</td>
+<td>{{=listas[fila[0]]['desc_lista']}}</td>
+<td>{{=fila[1]}}</td>
+</tr>
+{{pass}}
+</table>
+
+<h3>Datos Generales</h3>
+<ul>
+<li><b>Total: {{=total}}</li>
+<li><b>Total D'Hondt: {{=dhont_total}}</li>
+<li><b>Bancas D'Hont: {{=dhont_bancas}}</li>
+<li><b>Piso D'Hont: {{=dhont_piso}}</li>
+</ul>

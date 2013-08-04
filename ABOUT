@@ -1,0 +1,18 @@
+Aplicación web de recuento de votos (escrutinio) para procesos electorales
+
+Copyright 2011-2013 (c) Magic Software Argentina S.A.
+Autor Principal: Mariano Reingart <reingart@gmail.com>
+
+El programa es software libre liberado bajo licencia Affero GPLv3 (o posterior) 
+y se entrega como está, sin garantías explícitas ni implicitas de ningún tipo, 
+incluyendo sin limitación, pérdida de ganancias, interrupción de negocios, 
+pérdida de programas u otros datos en sistemas de computación o cualquier otro 
+reclamo. 
+Al usarlo acepta hacerlo bajo su propia responsabilidad, conociendo la 
+normativa y reglamentaciones existentes.
+
+NOTA: la aplicación ha sido basada en una DEMO y ha sido simplificada en cuanto
+      a cuestiones de seguridad y rendimiento, para orientarla en principio a 
+      fines educativos y experimentales.
+
+Desarrollado con web2py (Python) y PostgreSQL

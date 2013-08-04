@@ -1,0 +1,21 @@
+{{extend 'layout.html'}}
+<h1>Listado de planillas</h1>
+Formulario de búsqueda:
+{{=form}}
+{{if table:}}
+<h2>Resultado</h2>
+
+{{if pagina>1:}}
+<a href="{{=URL(args=[1])}}">primera</a>
+<a href="{{=URL(args=[pagina-1])}}">previo</a>
+{{pass}}
+Página {{=pagina}} de {{=paginas}}
+{{if pagina<paginas:}}
+<a href="{{=URL(args=[pagina+1])}}">próxima</a>
+<a href="{{=URL(args=[paginas])}}">última</a>
+{{pass}}
+
+{{=table}}
+<h3>{{=response.flash}}</h3>
+<p>Clickee sobre el id_planilla para ver el detalle e imagen y asi poder modificarla y confirmarla.</p>
+{{pass}}
