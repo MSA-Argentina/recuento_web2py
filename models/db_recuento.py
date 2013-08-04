@@ -7,8 +7,8 @@ migrate = True     # cambiar a True para crear / modificar las tablas
 msa = DAL(PG_CNNSTR, pool_size=10)
 
 # Constantes generales
-ESTADOS = ('Pendiente', 'Recibida', 'Verificar','OK', 'Publicada')
-CLASES = ('Pais', 'Provincia', 'Departamento') # ('Circuito', 'Escuela', 'Mesa')
+ESTADOS = ['Pendiente', 'Recibida', 'Verificar','OK', 'Publicada']
+CLASES = ['Pais', 'Provincia', 'Departamento'] # ('Circuito', 'Escuela', 'Mesa')
 
 # Valores predeterminados para los formularios:
 UBICACION_RAIZ = 1
