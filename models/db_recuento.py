@@ -8,7 +8,7 @@ msa = DAL(PG_CNNSTR, pool_size=10)
 
 # Constantes generales
 ESTADOS = ['Pendiente', 'Recibida', 'Verificar','OK', 'Publicada']
-CLASES = ['Pais', 'Provincia', 'Departamento'] # ('Circuito', 'Escuela', 'Mesa')
+CLASES = ['Pais', 'Provincia', 'Departamento', 'Circuito', 'Mesa']
 
 # Valores predeterminados para los formularios:
 UBICACION_RAIZ = 1

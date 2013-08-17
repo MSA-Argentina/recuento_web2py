@@ -103,6 +103,9 @@ def reporte():
                         l.color),
               orderby= ~suma_votos | l.idx_fila
              )
+    
+    ##return msa._lastsql   # muestro query para depuración
+    
     # Calculo el total y preparo datos para dhont
 
     for registro in resultado:
