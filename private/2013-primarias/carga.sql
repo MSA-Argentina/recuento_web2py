@@ -102,13 +102,14 @@ UPDATE tmp.diputados SET codigo_circuito = TRIM(LEADING '0' FROM codigo_circuito
 
 /* creo algunas vistas para extraer los circuitos */
 
-CREATE VIEW tmp.circuitos_senadores AS 
+CREATE OR REPLACE VIEW tmp.circuitos_senadores AS 
   SELECT DISTINCT codigo_provincia, codigo_departamento, codigo_circuito, codigo_mesa FROM tmp.senadores;
-CREATE VIEW tmp.circuitos_diputados AS 
+CREATE OR REPLACE VIEW tmp.circuitos_diputados AS 
   SELECT DISTINCT codigo_provincia, codigo_departamento, codigo_circuito, codigo_mesa FROM tmp.diputados;
 
-CREATE VIEW tmp.circuitos AS 
-  SELECT DISTINCT C.* FROM (SELECT * FROM tmp.circuitos_diputados UNION SELECT * FROM tmp.circuitos_senadores) C;
+CREATE OR REPLACE VIEW tmp.circuitos AS 
+  SELECT DISTINCT C.* FROM (SELECT * FROM tmp.circuitos_diputados UNION SELECT * FROM tmp.circuitos_senadores) C
+  ORDER BY codigo_provincia, codigo_departamento, codigo_mesa;
 
 COMMIT;
 

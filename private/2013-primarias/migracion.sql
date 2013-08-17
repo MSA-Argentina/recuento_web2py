@@ -45,5 +45,24 @@ INSERT INTO ubicaciones (id_ubicacion, descripcion, clase, id_ubicacion_padre)
          departamento, 'Departamento', codigo_provincia
   FROM tmp.departamentos ORDER BY codigo_provincia, codigo_departamento;
 
+/* circuitos - reinicio la secuencia autonumerica para el id */
+
+ALTER SEQUENCE ubicaciones_id_ubicacion_seq RESTART 100000;
+
+INSERT INTO ubicaciones (descripcion, clase, id_ubicacion_padre)
+  SELECT DISTINCT codigo_circuito, 'Circuito', codigo_provincia*1000 + codigo_departamento
+  FROM tmp.circuitos;
+  
+/* mesas - reinicio la secuencia autonumerica para el id */
+
+ALTER SEQUENCE ubicaciones_id_ubicacion_seq RESTART 200000;
+
+INSERT INTO ubicaciones (descripcion, clase, id_ubicacion_padre)
+  SELECT DISTINCT codigo_mesa, 'Mesa', U.id_ubicacion
+  FROM tmp.circuitos, ubicaciones U
+  WHERE U.clase='Circuito' AND U.descripcion=codigo_circuito
+    AND U.id_ubicacion_padre=codigo_provincia*1000 + codigo_departamento
+  ORDER BY U.id_ubicacion, codigo_mesa::INTEGER;
+    
 COMMIT;
 
