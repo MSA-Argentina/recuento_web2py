@@ -11,20 +11,30 @@ TRUNCATE carg_list_ubic CASCADE;
 
 /* NORMALIZACIÓN */
 
+/* PARTIDOS (aka agrupaciones, ignorar ELECTORES, VOTANTES, EMPADRONADOS) */
+
+DELETE FROM partidos;
+INSERT INTO 
+  partidos (id_partido, nro_partido, descripcion) 
+  SELECT DISTINCT agrupacion, agrupacion, partido
+  FROM tmp.partidos 
+  WHERE codigo_partido NOT IN (9001, 9002, 9007)
+  ORDER BY agrupacion;
+  
 /* LISTAS (ignorar ELECTORES, VOTANTES, EMPADRONADOS) */
 
 DELETE FROM listas;
 CREATE TEMP SEQUENCE idx_fila;
 
 INSERT INTO 
-  listas (id_lista, nro_lista, descripcion, descripcion_corta, positivo, idx_fila) 
+  listas (id_lista, nro_lista, descripcion, descripcion_corta, positivo, idx_fila, id_partido) 
   SELECT codigo_partido, agrupacion, 
          COALESCE(lista_interna, partido), 
          SUBSTRING(COALESCE(lista_interna, partido) FROM 1 FOR 25),
          CASE WHEN codigo_partido < 9000 THEN 'T'  /* agrupaciones */
               WHEN codigo_partido = 9004 THEN 'T'  /* votos en blanco */
               ELSE 'F' END,
-         nextval('idx_fila')
+         nextval('idx_fila'), agrupacion
   FROM tmp.partidos 
   WHERE codigo_partido NOT IN (9001, 9002, 9007)  
   ORDER BY codigo_partido;

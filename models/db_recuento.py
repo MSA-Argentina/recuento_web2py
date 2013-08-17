@@ -33,6 +33,12 @@ msa.define_table('cargos',
     Field('descripcion_corta', type='string', length=16),
     migrate=migrate)
 
+msa.define_table('partidos',
+    Field('id_partido', type='id', length=3),
+    Field('nro_partido', type='string', length=10),
+    Field('descripcion', type='string', length=80),
+    migrate=migrate)
+
 msa.define_table('listas',
     Field('id_lista', type='id', length=3),
     Field('nro_lista', type='string', length=10),
@@ -42,7 +48,7 @@ msa.define_table('listas',
     Field('color', type='string', length=19),
     Field('descripcion_corta', type='string', length=25),
     Field('descripcion_grafico', type='string', length=16),
-    ##Field('id_partido', type='reference partidos.id_partido'),
+    Field('id_partido', type=msa.partidos),
     migrate=migrate)
 
 msa.define_table('carg_list_ubic',
