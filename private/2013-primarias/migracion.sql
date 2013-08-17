@@ -4,6 +4,10 @@ BEGIN;
 
 /* correr carga.sql para importar los datos antes de ejecutar este script */
 
+/* elimintar todos los resultados previos para acelerar la importación */
+
+TRUNCATE planillas CASCADE;
+
 /* NORMALIZACIÓN */
 
 /* LISTAS (ignorar ELECTORES, VOTANTES, EMPADRONADOS) */
@@ -81,6 +85,33 @@ ALTER SEQUENCE planillas_id_planilla_seq RESTART 1;
 INSERT INTO planillas (id_ubicacion, id_estado, definitivo)
      SELECT T.id_ubicacion, 'Publicada', 'F'
      FROM tmp.mesas T;
+
+/* DETALLE PLANILLA (resultados: votos para sendores y diputados nacionales) */
+
+ALTER SEQUENCE planillas_det_id_seq RESTART 1;
+
+INSERT INTO planillas_det (id_planilla, id_cargo, id_lista, votos_definitivos)
+  SELECT P.id_planilla, C.id_cargo, L.id_lista, T.votos
+  FROM tmp.senadores T INNER JOIN tmp.mesas M 
+                               ON T.codigo_mesa = M.codigo_mesa
+                              AND T.codigo_departamento = M.codigo_departamento
+                              AND T.codigo_provincia = M.codigo_provincia
+                       INNER JOIN planillas P ON P.id_ubicacion = M.id_ubicacion
+                       INNER JOIN cargos C ON C.descripcion_corta = 'SN'
+                       INNER JOIN listas L ON L.id_lista = T.codigo_partido
+  ORDER BY P.id_ubicacion, T.codigo_partido;
+
+INSERT INTO planillas_det (id_planilla, id_cargo, id_lista, votos_definitivos)
+  SELECT P.id_planilla, C.id_cargo, L.id_lista, T.votos
+  FROM tmp.diputados T INNER JOIN tmp.mesas M 
+                               ON T.codigo_mesa = M.codigo_mesa
+                              AND T.codigo_departamento = M.codigo_departamento
+                              AND T.codigo_provincia = M.codigo_provincia
+                       INNER JOIN planillas P ON P.id_ubicacion = M.id_ubicacion
+                       INNER JOIN cargos C ON C.descripcion_corta = 'DN'
+                       INNER JOIN listas L ON L.id_lista = T.codigo_partido
+  ORDER BY P.id_ubicacion, T.codigo_partido;
+
 
 COMMIT;
 
