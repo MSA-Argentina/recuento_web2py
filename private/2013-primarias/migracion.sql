@@ -1,96 +1,35 @@
 BEGIN;
 
-/* script SQL para importar datos publicos Elecciones PASO Nacionales 2013 */
+/* script SQL para migrar datos publicos PASO 2013 a la app de recuento */
 
-/* creo un esquema para alojar las tablas "temporales" */
+/* correr carga.sql para importar los datos antes de ejecutar este script */
 
-DROP SCHEMA IF EXISTS tmp CASCADE;
-CREATE SCHEMA tmp;
+/* NORMALIZACIÓN */
 
-/* provincias: crear tabla e importar datos publicos */
+/* LISTAS (ignorar ELECTORES, VOTANTES, EMPADRONADOS) */
 
-CREATE TABLE tmp.provincias (
-    codigo_provincia INTEGER PRIMARY KEY,
-    provincia VARCHAR(50)
-);
+DELETE FROM listas;
+CREATE TEMP SEQUENCE idx_fila;
 
-COPY tmp.provincias
-    FROM '/home/reingart/web2py/applications/recuento_web2py/private/2013-primarias/electoral-paso-2013-provincias.csv' 
-    WITH ( FORMAT CSV, HEADER );
+INSERT INTO 
+  listas (id_lista, nro_lista, descripcion, descripcion_corta, positivo, idx_fila) 
+  SELECT codigo_partido, codigo_partido, 
+         COALESCE(lista_interna, partido), 
+         SUBSTRING(COALESCE(lista_interna, partido) FROM 1 FOR 25),
+         CASE WHEN codigo_partido < 9000 THEN 'T' ELSE 'F' END,
+         nextval('idx_fila')
+  FROM tmp.partidos 
+  WHERE codigo_partido NOT IN (9001, 9002, 9007)  
+  ORDER BY codigo_partido;
 
-/* departamentos: crear tabla e importar datos publicos */
+/* CARGOS */
 
-CREATE TABLE tmp.departamentos (
-    codigo_provincia INTEGER,
-    provincia VARCHAR(50),
-    codigo_departamento INTEGER,
-    departamento VARCHAR(50),
-    PRIMARY KEY (codigo_provincia, codigo_departamento)
-);
-
-COPY tmp.departamentos
-    FROM '/home/reingart/web2py/applications/recuento_web2py/private/2013-primarias/electoral-paso-2013-departamentos.csv' 
-    WITH ( FORMAT CSV, HEADER );
-
-/* partidos: crear tabla e importar datos publicos */
-
-CREATE TABLE tmp.partidos (
-    codigo_partido INTEGER PRIMARY KEY,
-    partido VARCHAR(250),
-    lista_interna VARCHAR(250),
-    agrupacion INTEGER REFERENCES tmp.partidos(codigo_partido)
-);
-
-COPY tmp.partidos
-    FROM '/home/reingart/web2py/applications/recuento_web2py/private/2013-primarias/electoral-paso-2013-partidos.csv' 
-    WITH ( FORMAT CSV, HEADER );
-
-
-/* resultados para senadores: crear tabla e importar datos publicos */
-
-CREATE TABLE tmp.senadores (
-    codigo_provincia INTEGER REFERENCES tmp.provincias(codigo_provincia),
-    codigo_departamento INTEGER,
-    codigo_circuito VARCHAR(5),
-    codigo_mesa INTEGER,
-    codigo_partido INTEGER REFERENCES tmp.partidos(codigo_partido),
-    votos INTEGER NOT NULL CHECK (votos BETWEEN 0 AND 999),
-    PRIMARY KEY (codigo_provincia, codigo_mesa, codigo_partido),
-    FOREIGN KEY (codigo_provincia, codigo_departamento) 
-     REFERENCES tmp.departamentos(codigo_provincia, codigo_departamento)
-);
-
-COPY tmp.senadores
-    FROM '/home/reingart/web2py/applications/recuento_web2py/private/2013-primarias/electoral-paso-2013-senadores-01-a-02.csv' 
-    WITH ( FORMAT CSV, HEADER );
-
-COPY tmp.senadores
-    FROM '/home/reingart/web2py/applications/recuento_web2py/private/2013-primarias/electoral-paso-2013-senadores-03-a-24.csv' 
-    WITH ( FORMAT CSV, HEADER );
-
-
-/* resultados para diputados: crear tabla e importar datos publicos */
-
-CREATE TABLE tmp.diputados (
-    codigo_provincia INTEGER REFERENCES tmp.provincias(codigo_provincia),
-    codigo_departamento INTEGER,
-    codigo_circuito VARCHAR(6), /* 1008.0 */
-    codigo_mesa INTEGER,
-    codigo_partido INTEGER REFERENCES tmp.partidos(codigo_partido),
-    votos INTEGER NOT NULL CHECK (votos BETWEEN 0 AND 999),
-    PRIMARY KEY (codigo_provincia, codigo_departamento, codigo_mesa, codigo_partido),
-    FOREIGN KEY (codigo_provincia, codigo_departamento)
-     REFERENCES tmp.departamentos(codigo_provincia, codigo_departamento)
-);
-
-COPY tmp.diputados
-    FROM '/home/reingart/web2py/applications/recuento_web2py/private/2013-primarias/electoral-paso-2013-diputados-01-a-02.csv' 
-    WITH ( FORMAT CSV, HEADER );
-
-COPY tmp.diputados
-    FROM '/home/reingart/web2py/applications/recuento_web2py/private/2013-primarias/electoral-paso-2013-diputados-03-a-24.csv' 
-    WITH ( FORMAT CSV, HEADER );
-
-
+DELETE FROM cargos;
+ALTER SEQUENCE cargos_id_cargo_seq RESTART 1; /* reinicio la secuencia autonumerica */
+INSERT INTO cargos (descripcion, descripcion_corta, idx_col) VALUES 
+    /* ('Presidente/Vice', 'PV', 1), */
+    ('Senador Nacional', 'SN', 2),
+    ('Diputado Nacional', 'DN', 3);
+    
 COMMIT;
 
