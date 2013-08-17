@@ -1,0 +1,18 @@
+Sobre los archivos de resultados Provisorios PASO 2013
+
+Estos archivos ponen a disposicion los Resultados Provisorios de las elecciones Primarias, Abiertas, Simultaneas y Obligatorias de 2013 para los cargos de Diputados Nacionales y Senadores Nacionales.  
+
+La fuente de datos de este Recuento Provisional son los Telegramas con los resultados del escrutinio realizado en cada mesa electoral que han sido suscritos por los presidentes de mesa juntamente con los fiscales (art. 105, Codigo Electoral Nacional).
+
+La informacion contenida en estos archivos muestra resultados para cada Distrito del pais, desagregados por Secciones, Circuitos y Mesas de votacion. La informacion provista corresponde al momento de cierre del Recuento Provisional e incluye todas las mesas para las cuales se recibieron telegramas con datos legibles que fueron cargados a la base del Recuento. 
+
+El Escrutinio Definitivo se realiza a partir de otras fuentes y es desarrollado por la Justicia Nacional Electoral, de acuerdo a los procedimientos establecidos en el Codigo Electoral Nacional. 
+
+Sobre el significado de algunas variables incluidas:
+9001: es la cantidad de electores que han votado segun se informa en el telegrama
+9002: es la cantidad de sobres en la urna segun se informa en el telegrama
+9003: votos de identidad impugnada
+9004: votos en blanco para la categoria
+9005: votos nulos
+9006: votos recurridos
+9007: es la cantidad de electores habilitados en cada mesa electoral de acuerdo a la informacion brindada por la Justicia Nacional Electoral. No incluye a quienes fueron consignados en los padrones complementarios de fuerzas de seguridad, delegados judiciales y autoridades de mesa, segun lo indicado por la misma autoridad judicial. 

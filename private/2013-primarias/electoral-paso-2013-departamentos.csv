@@ -1,0 +1,532 @@
+codigo_provincia,provincia,codigo_departamento,departamento
+1,Capital Federal,1,Comuna 1
+1,Capital Federal,2,Comuna 2
+1,Capital Federal,3,Comuna 3
+1,Capital Federal,4,Comuna 4
+1,Capital Federal,5,Comuna 5
+1,Capital Federal,6,Comuna 6
+1,Capital Federal,7,Comuna 7
+1,Capital Federal,8,Comuna 8
+1,Capital Federal,9,Comuna 9
+1,Capital Federal,10,Comuna 10
+1,Capital Federal,11,Comuna 11
+1,Capital Federal,12,Comuna 12
+1,Capital Federal,13,Comuna 13
+1,Capital Federal,14,Comuna 14
+1,Capital Federal,15,Comuna 15
+2,Buenos Aires,1,ADOLFO ALSINA
+2,Buenos Aires,2,ALBERTI
+2,Buenos Aires,3,ALTE. BROWN
+2,Buenos Aires,4,AVELLANEDA
+2,Buenos Aires,5,AYACUCHO
+2,Buenos Aires,6,AZUL
+2,Buenos Aires,7,BAHIA BLANCA
+2,Buenos Aires,8,BALCARCE
+2,Buenos Aires,9,BARADERO
+2,Buenos Aires,10,ARRECIFES
+2,Buenos Aires,11,BERAZATEGUI
+2,Buenos Aires,12,BERISSO
+2,Buenos Aires,13,BOLIVAR
+2,Buenos Aires,14,BRAGADO
+2,Buenos Aires,15,BRANDSEN
+2,Buenos Aires,16,CAMPANA
+2,Buenos Aires,17,CAÑUELAS
+2,Buenos Aires,18,C. SARMIENTO
+2,Buenos Aires,19,C. CASARES
+2,Buenos Aires,20,C.TEJEDOR
+2,Buenos Aires,21,C. DE ARECO
+2,Buenos Aires,22,PATAGONES
+2,Buenos Aires,23,CASTELLI
+2,Buenos Aires,24,COLON
+2,Buenos Aires,25,CNEL. DORREGO
+2,Buenos Aires,26,CNEL. PRINGLES
+2,Buenos Aires,27,CNEL. ROSALES
+2,Buenos Aires,28,CNEL. SUAREZ
+2,Buenos Aires,29,CHACABUCO
+2,Buenos Aires,30,CHASCOMUS
+2,Buenos Aires,31,CHIVILCOY
+2,Buenos Aires,32,DAIREAUX
+2,Buenos Aires,33,DOLORES
+2,Buenos Aires,34,ENSENADA
+2,Buenos Aires,35,ESCOBAR
+2,Buenos Aires,36,E. ECHEVERRIA
+2,Buenos Aires,37,E. DE LA CRUZ
+2,Buenos Aires,38,FCIO. VARELA
+2,Buenos Aires,39,GRAL. ALVARADO
+2,Buenos Aires,40,GRAL. ALVEAR
+2,Buenos Aires,41,GRAL. ARENALES
+2,Buenos Aires,42,GRAL. BELGRANO
+2,Buenos Aires,43,GRAL. GUIDO
+2,Buenos Aires,44,GRAL. LAMADRID
+2,Buenos Aires,45,LAS HERAS
+2,Buenos Aires,46,GRAL. LAVALLE
+2,Buenos Aires,47,GRAL. MADARIAGA
+2,Buenos Aires,48,GRAL. PAZ
+2,Buenos Aires,49,GRAL. PINTO
+2,Buenos Aires,50,GRAL. PUEYRREDON
+2,Buenos Aires,51,GRAL. RODRIGUEZ
+2,Buenos Aires,52,GRAL. SAN MARTIN
+2,Buenos Aires,53,SAN MIGUEL
+2,Buenos Aires,54,GRAL. VIAMONTE
+2,Buenos Aires,55,GRAL. VILLEGAS
+2,Buenos Aires,56,G. CHAVES
+2,Buenos Aires,57,GUAMINI
+2,Buenos Aires,58,H. YRIGOYEN
+2,Buenos Aires,59,JUAREZ
+2,Buenos Aires,60,JUNIN
+2,Buenos Aires,61,MATANZA
+2,Buenos Aires,62,LANUS
+2,Buenos Aires,63,LA PLATA
+2,Buenos Aires,64,LAPRIDA
+2,Buenos Aires,65,LAS FLORES
+2,Buenos Aires,66,L. N. ALEM
+2,Buenos Aires,67,LINCOLN
+2,Buenos Aires,68,LOBERIA
+2,Buenos Aires,69,LOBOS
+2,Buenos Aires,70,L. DE ZAMORA
+2,Buenos Aires,71,LUJAN
+2,Buenos Aires,72,MAGDALENA
+2,Buenos Aires,73,MAIPU
+2,Buenos Aires,74,MAR CHIQUITA
+2,Buenos Aires,75,MARCOS PAZ
+2,Buenos Aires,76,MERCEDES
+2,Buenos Aires,77,MERLO
+2,Buenos Aires,78,MONTE
+2,Buenos Aires,79,MORENO
+2,Buenos Aires,80,MORON
+2,Buenos Aires,81,NAVARRO
+2,Buenos Aires,82,NECOCHEA
+2,Buenos Aires,83,NVE. DE JULIO
+2,Buenos Aires,84,OLAVARRIA
+2,Buenos Aires,85,PEHUAJO
+2,Buenos Aires,86,PELLEGRINI
+2,Buenos Aires,87,PERGAMINO
+2,Buenos Aires,88,PILA
+2,Buenos Aires,89,PILAR
+2,Buenos Aires,90,PINAMAR
+2,Buenos Aires,91,PUAN
+2,Buenos Aires,92,QUILMES
+2,Buenos Aires,93,RAMALLO
+2,Buenos Aires,94,RAUCH
+2,Buenos Aires,95,RIVADAVIA
+2,Buenos Aires,96,ROJAS
+2,Buenos Aires,97,ROQUE PEREZ
+2,Buenos Aires,98,SAAVEDRA
+2,Buenos Aires,99,SALADILLO
+2,Buenos Aires,100,SALLIQUELO
+2,Buenos Aires,101,SALTO
+2,Buenos Aires,102,S. A. DE GILES
+2,Buenos Aires,103,S. A. DE ARECO
+2,Buenos Aires,104,SAN CAYETANO
+2,Buenos Aires,105,SAN FERNANDO
+2,Buenos Aires,106,SAN ISIDRO
+2,Buenos Aires,107,SAN NICOLAS
+2,Buenos Aires,108,SAN PEDRO
+2,Buenos Aires,109,SAN VICENTE
+2,Buenos Aires,110,SUIPACHA
+2,Buenos Aires,111,TANDIL
+2,Buenos Aires,112,TAPALQUE
+2,Buenos Aires,113,TIGRE
+2,Buenos Aires,114,TORNQUIST
+2,Buenos Aires,115,T. LAUQUEN
+2,Buenos Aires,116,TORDILLO
+2,Buenos Aires,117,T. ARROYOS
+2,Buenos Aires,118,T. DE FEBRERO
+2,Buenos Aires,119,LA COSTA
+2,Buenos Aires,120,MTE. HERMOSO
+2,Buenos Aires,121,25 DE MAYO
+2,Buenos Aires,122,VTE. LOPEZ
+2,Buenos Aires,123,VILLA GESELL
+2,Buenos Aires,124,VILLARINO
+2,Buenos Aires,125,ZARATE
+2,Buenos Aires,126,TRES LOMAS
+2,Buenos Aires,127,F.AMEGHINO
+2,Buenos Aires,128,PTE. PERON
+2,Buenos Aires,129,J.C.PAZ
+2,Buenos Aires,130,M. ARGENTINAS
+2,Buenos Aires,131,PUNTA INDIO
+2,Buenos Aires,132,EZEIZA
+2,Buenos Aires,133,ITUZAINGO
+2,Buenos Aires,134,HURLINGHAM
+2,Buenos Aires,135,LEZAMA
+3,Catamarca,1,Capital
+3,Catamarca,2,Capayan
+3,Catamarca,3,La Paz
+3,Catamarca,4,Ancasti
+3,Catamarca,5,El Alto
+3,Catamarca,6,Santa Rosa
+3,Catamarca,7,Paclin
+3,Catamarca,8,Valle Viejo
+3,Catamarca,9,Fray Mamerto Esquiu
+3,Catamarca,10,Ambato
+3,Catamarca,11,Poman
+3,Catamarca,12,Andalgala
+3,Catamarca,13,Belen
+3,Catamarca,14,Antofagasta de la Sierra
+3,Catamarca,15,Tinogasta
+3,Catamarca,16,Santa Maria
+4,Córdoba,1,Capital
+4,Córdoba,2,Calamuchita
+4,Córdoba,3,Colon
+4,Córdoba,4,Cruz del Eje
+4,Córdoba,5,Gral. Roca
+4,Córdoba,6,Gral. San Martin
+4,Córdoba,7,Ischilin
+4,Córdoba,8,Juarez Celman
+4,Córdoba,9,Marcos Juarez
+4,Córdoba,10,Minas
+4,Córdoba,11,Pocho
+4,Córdoba,12,Punilla
+4,Córdoba,13,Rio Cuarto
+4,Córdoba,14,Rio Primero
+4,Córdoba,15,Rio Seco
+4,Córdoba,16,Rio Segundo
+4,Córdoba,17,Roque Saenz Peña
+4,Córdoba,18,San Alberto
+4,Córdoba,19,San Javier
+4,Córdoba,20,San Justo
+4,Córdoba,21,Santa Maria
+4,Córdoba,22,Sobremonte
+4,Córdoba,23,Tercero Arriba
+4,Córdoba,24,Totoral
+4,Córdoba,25,Tulumba
+4,Córdoba,26,Union
+5,Corrientes,1,Capital
+5,Corrientes,2,Goya
+5,Corrientes,3,Curuzu Cuatia
+5,Corrientes,4,Mercedes
+5,Corrientes,5,Esquina
+5,Corrientes,6,Lavalle
+5,Corrientes,7,Santo Tome
+5,Corrientes,8,Paso de los Libres
+5,Corrientes,9,Monte Caseros
+5,Corrientes,10,San Luis del Palmar
+5,Corrientes,11,Bella Vista
+5,Corrientes,12,Empedrado
+5,Corrientes,13,San Roque
+5,Corrientes,14,General Paz
+5,Corrientes,15,Saladas
+5,Corrientes,16,San Martin
+5,Corrientes,17,Concepcion
+5,Corrientes,18,Mburucuya
+5,Corrientes,19,Ituzaingo
+5,Corrientes,20,Sauce
+5,Corrientes,21,San Cosme
+5,Corrientes,22,General Alvear
+5,Corrientes,23,San Miguel
+5,Corrientes,24,Itati
+5,Corrientes,25,Beron de Astrada
+6,Chaco,1,San Fernando
+6,Chaco,2,1° de Mayo
+6,Chaco,3,Libertad
+6,Chaco,4,Gral. Donovan
+6,Chaco,5,Sgto. Cabral
+6,Chaco,6,Pcia. de la Plaza
+6,Chaco,7,Bermejo
+6,Chaco,8,Lib. Gral. San Martin
+6,Chaco,9,Tapenaga
+6,Chaco,10,San Lorenzo
+6,Chaco,11,Mayor l.j. Fontana
+6,Chaco,12,O Higgins
+6,Chaco,13,Cte. Fernandez
+6,Chaco,14,Quitilipi
+6,Chaco,15,25 de Mayo
+6,Chaco,16,Maipu
+6,Chaco,17,Independencia
+6,Chaco,18,Gral. Belgrano
+6,Chaco,19,9 de Julio
+6,Chaco,20,Chacabuco
+6,Chaco,21,12 de Octubre
+6,Chaco,22,2 de Abril
+6,Chaco,23,Fray Santa María de Oro
+6,Chaco,24,Alte. Brown
+6,Chaco,25,Gral. Guemes
+7,Chubut,1,Rawson
+7,Chubut,2,Biedma
+7,Chubut,3,Telsen
+7,Chubut,4,Gastre
+7,Chubut,5,Cushamen
+7,Chubut,6,Futaleufu
+7,Chubut,7,Languineo
+7,Chubut,8,Tehuelches
+7,Chubut,9,Paso de los Indios
+7,Chubut,10,Martires
+7,Chubut,11,Florentino Ameghino
+7,Chubut,12,Gaiman
+7,Chubut,13,Rio Senguer
+7,Chubut,14,Samiento
+7,Chubut,15,Escalante
+8,Entre Ríos,1,Parana
+8,Entre Ríos,2,Parana
+8,Entre Ríos,3,La Paz
+8,Entre Ríos,4,Diamante
+8,Entre Ríos,5,Victoria
+8,Entre Ríos,6,Nogoya
+8,Entre Ríos,7,Gualeguay
+8,Entre Ríos,8,Tala
+8,Entre Ríos,9,Uruguay
+8,Entre Ríos,10,Gualeguaychu
+8,Entre Ríos,11,Islas del Ibicuy
+8,Entre Ríos,12,Villaguay
+8,Entre Ríos,13,Concordia
+8,Entre Ríos,14,Federal
+8,Entre Ríos,15,Colon
+8,Entre Ríos,16,Feliciano
+8,Entre Ríos,17,Federacion
+8,Entre Ríos,18,San Salvador
+9,Formosa,1,Formosa
+9,Formosa,2,Laishi
+9,Formosa,3,Pilcomayo
+9,Formosa,4,Pirane
+9,Formosa,5,Pilagas
+9,Formosa,6,Patiño
+9,Formosa,7,Bermejo
+9,Formosa,8,Matacos
+9,Formosa,9,Ramon Lista
+10,Jujuy,1,Dr. Manuel Belgrano
+10,Jujuy,2,Palpala
+10,Jujuy,3,San Antonio
+10,Jujuy,4,El Carmen
+10,Jujuy,5,San Pedro
+10,Jujuy,6,Santa Barbara
+10,Jujuy,7,Ledesma
+10,Jujuy,8,Valle Grande
+10,Jujuy,9,Tumbaya
+10,Jujuy,10,Tilcara
+10,Jujuy,11,Humahuaca
+10,Jujuy,12,Cochinoca
+10,Jujuy,13,Rinconada
+10,Jujuy,14,Santa Catalina
+10,Jujuy,15,Yavi
+10,Jujuy,16,Susques
+11,La Pampa,1,Atreuco
+11,La Pampa,2,Capital
+11,La Pampa,3,Caleu Caleu
+11,La Pampa,4,Catrilo
+11,La Pampa,5,Chalileo
+11,La Pampa,6,Chapaleufu
+11,La Pampa,7,Chical-co
+11,La Pampa,8,Conhelo
+11,La Pampa,9,Curaco
+11,La Pampa,10,Guatrache
+11,La Pampa,11,Hucal
+11,La Pampa,12,Loventue
+11,La Pampa,13,Lihuel Lihuel
+11,La Pampa,14,Limay Mahuida
+11,La Pampa,15,Maraco
+11,La Pampa,16,16 Puelen
+11,La Pampa,17,Quemu Quemu
+11,La Pampa,18,Rancul
+11,La Pampa,19,Realico
+11,La Pampa,20,Toay
+11,La Pampa,21,Trenel
+11,La Pampa,22,Utracan
+12,La Rioja,1,Capital
+12,La Rioja,2,Sanagasta
+12,La Rioja,3,Castro Barros
+12,La Rioja,4,Arauco
+12,La Rioja,5,San Blas de los Sauces
+12,La Rioja,6,Chilecito
+12,La Rioja,7,Famatina
+12,La Rioja,8,Cnel. Felipe Varela
+12,La Rioja,9,Gral.Lamadrid
+12,La Rioja,10,Vinchina
+12,La Rioja,11,Independencia
+12,La Rioja,12,Chamical
+12,La Rioja,13,Angel Vicente Peñaloza
+12,La Rioja,14,Gral. Belgrano
+12,La Rioja,15,Juan Facundo Quiroga
+12,La Rioja,16,Gral.Ortiz de Ocampo
+12,La Rioja,17,Rosario Vera Peñaloza
+12,La Rioja,18,Gral.San Martin
+13,Mendoza,1,Capital
+13,Mendoza,2,Godoy Cruz
+13,Mendoza,3,Guaymallen
+13,Mendoza,4,Las Heras
+13,Mendoza,5,Lavalle
+13,Mendoza,6,Maipu
+13,Mendoza,7,Lujan
+13,Mendoza,8,Tupungato
+13,Mendoza,9,San Martin
+13,Mendoza,10,Junin
+13,Mendoza,11,Rivadavia
+13,Mendoza,12,Tunuyan
+13,Mendoza,13,San Carlos
+13,Mendoza,14,Santa Rosa
+13,Mendoza,15,La Paz
+13,Mendoza,16,San Rafael
+13,Mendoza,17,Malargue
+13,Mendoza,18,Gral. Alvear
+14,Misiones,1,Capital
+14,Misiones,2,Apostoles
+14,Misiones,3,Candelaria
+14,Misiones,4,L.N.Alem
+14,Misiones,5,C. de la Sierra
+14,Misiones,6,San Javier
+14,Misiones,7,San Ignacio
+14,Misiones,8,Obera
+14,Misiones,9,L.G. San Martin
+14,Misiones,10,Cainguas
+14,Misiones,11,25 de Mayo
+14,Misiones,12,Montecarlo
+14,Misiones,13,Guarani
+14,Misiones,14,El Dorado
+14,Misiones,15,San Pedro
+14,Misiones,16,Iguazu
+14,Misiones,17,Gral. Manuel Belgrano
+15,Neuquén,1,Confluencia
+15,Neuquén,2,Zapala
+15,Neuquén,3,Añelo
+15,Neuquén,4,Pehuenches
+15,Neuquén,5,Chos Malal
+15,Neuquén,6,Minas
+15,Neuquén,7,Ñorquin
+15,Neuquén,8,Loncopue
+15,Neuquén,9,Picunches
+15,Neuquén,10,Alumine
+15,Neuquén,11,Catan Lil
+15,Neuquén,12,Picun Leufu
+15,Neuquén,13,Collon Cura
+15,Neuquén,14,Huiliches
+15,Neuquén,15,Lacar
+15,Neuquén,16,Los Lagos
+16,Río Negro,1,Adolfo Alsina
+16,Río Negro,2,Conesa
+16,Río Negro,3,San Antonio
+16,Río Negro,4,Valcheta
+16,Río Negro,5,9 de Julio
+16,Río Negro,6,25 de Mayo
+16,Río Negro,7,Ñorquinco
+16,Río Negro,8,Pilcaniyeu
+16,Río Negro,9,Bariloche
+16,Río Negro,10,Pichi Mahuida
+16,Río Negro,11,Avellaneda
+16,Río Negro,12,Gral. Roca
+16,Río Negro,13,El Cuy
+17,Salta,1,Capital
+17,Salta,2,La Caldera
+17,Salta,3,Güemes
+17,Salta,4,Metan
+17,Salta,5,Anta
+17,Salta,6,Rivadavia
+17,Salta,7,Oran
+17,Salta,8,San Martin
+17,Salta,9,Iruya
+17,Salta,10,Santa Victoria
+17,Salta,11,Cerrillos
+17,Salta,12,Chicoana
+17,Salta,13,La Viña
+17,Salta,14,Guachipas
+17,Salta,15,Ros. de la Frontera
+17,Salta,16,La Candelaria
+17,Salta,17,Cafayate
+17,Salta,18,San Carlos
+17,Salta,19,Molinos
+17,Salta,20,Cachi
+17,Salta,21,Rosario de Lerma
+17,Salta,22,La Poma
+17,Salta,23,Los Andes
+18,San Juan,1,Capital
+18,San Juan,2,Santa Lucia
+18,San Juan,3,Chimbas
+18,San Juan,4,Rivadavia
+18,San Juan,5,Zonda
+18,San Juan,6,Rawson
+18,San Juan,7,9 de Julio
+18,San Juan,8,San Martin
+18,San Juan,9,Angaco
+18,San Juan,10,Albardon
+18,San Juan,11,Ullum
+18,San Juan,12,Pocito
+18,San Juan,13,Sarmiento
+18,San Juan,14,25 de Mayo
+18,San Juan,15,Caucete
+18,San Juan,16,Valle Fertil
+18,San Juan,17,Jachal
+18,San Juan,18,Iglesia
+18,San Juan,19,Calingasta
+19,San Luis,1,Pueyrredon
+19,San Luis,2,Pringles
+19,San Luis,3,Pedernera
+19,San Luis,4,Chacabuco
+19,San Luis,5,San Martín
+19,San Luis,6,Junin
+19,San Luis,7,Ayacucho
+19,San Luis,8,Belgrano
+19,San Luis,9,Dupuy
+20,Santa Cruz,1,Deseado
+20,Santa Cruz,2,Lago Bs. As
+20,Santa Cruz,3,Magallanes
+20,Santa Cruz,4,Rio Chico
+20,Santa Cruz,5,Corpen Aike
+20,Santa Cruz,6,Lago Argentino
+20,Santa Cruz,7,Guer Aike
+21,Santa Fe,1,Belgrano
+21,Santa Fe,2,Caseros
+21,Santa Fe,3,Castellanos
+21,Santa Fe,4,Constitucion
+21,Santa Fe,5,Garay
+21,Santa Fe,6,Gral. Lopez
+21,Santa Fe,7,Gral. Obligado
+21,Santa Fe,8,Iriondo
+21,Santa Fe,9,La Capital Secc.
+21,Santa Fe,10,La Capital Camp.
+21,Santa Fe,11,Las Colonias
+21,Santa Fe,12,Nueve de Julio
+21,Santa Fe,13,Rosario Secc.
+21,Santa Fe,14,Rosario Barr.
+21,Santa Fe,15,Rosario Camp.
+21,Santa Fe,16,San Cristobal
+21,Santa Fe,17,San Javier
+21,Santa Fe,18,San Jeronimo
+21,Santa Fe,19,San Justo
+21,Santa Fe,20,San Lorenzo
+21,Santa Fe,21,San Martin
+21,Santa Fe,22,Vera
+22,Santiago del Estero,1,Capital
+22,Santiago del Estero,2,Avellaneda
+22,Santiago del Estero,3,Aguirre
+22,Santiago del Estero,4,Alberdi
+22,Santiago del Estero,5,Atamisqui
+22,Santiago del Estero,6,Banda
+22,Santiago del Estero,7,Belgrano
+22,Santiago del Estero,8,Copo
+22,Santiago del Estero,9,Choya
+22,Santiago del Estero,10,Figueroa
+22,Santiago del Estero,11,Guasayan
+22,Santiago del Estero,12,Jimenez
+22,Santiago del Estero,13,Loreto
+22,Santiago del Estero,14,Matara
+22,Santiago del Estero,15,Mitre
+22,Santiago del Estero,16,Moreno
+22,Santiago del Estero,17,Ojo de Agua
+22,Santiago del Estero,18,Pellegrini
+22,Santiago del Estero,19,Quebrachos
+22,Santiago del Estero,20,Rivadavia
+22,Santiago del Estero,21,Robles
+22,Santiago del Estero,22,Rio Hondo
+22,Santiago del Estero,23,Silipica
+22,Santiago del Estero,24,San Martin
+22,Santiago del Estero,25,Salavina
+22,Santiago del Estero,26,Sarmiento
+22,Santiago del Estero,27,Taboada
+23,Tucumán,1,Capital
+23,Tucumán,2,Lules
+23,Tucumán,3,Famailla
+23,Tucumán,4,Monteros
+23,Tucumán,5,Chicligasta
+23,Tucumán,6,Rio Chico
+23,Tucumán,7,Alberdi
+23,Tucumán,8,La Cocha
+23,Tucumán,9,Graneros
+23,Tucumán,10,Simoca
+23,Tucumán,11,Leales
+23,Tucumán,12,Cruz Alta
+23,Tucumán,13,Burruyacu
+23,Tucumán,14,Trancas
+23,Tucumán,15,Yerba Buena
+23,Tucumán,16,Tafi Viejo
+23,Tucumán,17,Tafi del Valle
+24,Tierra del Fuego,1,Ushuaia
+24,Tierra del Fuego,2,Río Grande
+24,Tierra del Fuego,3,Antártida
