@@ -7,6 +7,7 @@ BEGIN;
 /* elimintar todos los resultados previos para acelerar la importación */
 
 TRUNCATE planillas CASCADE;
+TRUNCATE carg_list_ubic CASCADE;
 
 /* NORMALIZACIÓN */
 
@@ -20,7 +21,9 @@ INSERT INTO
   SELECT codigo_partido, codigo_partido, 
          COALESCE(lista_interna, partido), 
          SUBSTRING(COALESCE(lista_interna, partido) FROM 1 FOR 25),
-         CASE WHEN codigo_partido < 9000 THEN 'T' ELSE 'F' END,
+         CASE WHEN codigo_partido < 9000 THEN 'T'  /* agrupaciones */
+              WHEN codigo_partido = 9004 THEN 'T'  /* votos en blanco */
+              ELSE 'F' END,
          nextval('idx_fila')
   FROM tmp.partidos 
   WHERE codigo_partido NOT IN (9001, 9002, 9007)  
