@@ -91,6 +91,24 @@ COPY tmp.diputados
     FROM '/home/reingart/web2py/applications/recuento_web2py/private/2013-primarias/electoral-paso-2013-diputados-03-a-24.csv' 
     WITH ( FORMAT CSV, HEADER );
 
+/* elimino .0 y 0 a la izquierda en codigo de circuitos */
+
+UPDATE tmp.senadores SET codigo_circuito = REPLACE(codigo_circuito, '.0', '') WHERE codigo_circuito LIKE '%\.%';
+UPDATE tmp.diputados SET codigo_circuito = REPLACE(codigo_circuito, '.0', '') WHERE codigo_circuito LIKE '%\.%';
+
+UPDATE tmp.senadores SET codigo_circuito = TRIM(LEADING '0' FROM codigo_circuito) WHERE codigo_circuito LIKE '0%';
+UPDATE tmp.diputados SET codigo_circuito = TRIM(LEADING '0' FROM codigo_circuito) WHERE codigo_circuito LIKE '0%';
+
+
+/* creo algunas vistas para extraer los circuitos */
+
+CREATE VIEW tmp.circuitos_senadores AS 
+  SELECT DISTINCT codigo_provincia, codigo_departamento, codigo_circuito, codigo_mesa FROM tmp.senadores;
+CREATE VIEW tmp.circuitos_diputados AS 
+  SELECT DISTINCT codigo_provincia, codigo_departamento, codigo_circuito, codigo_mesa FROM tmp.diputados;
+
+CREATE VIEW tmp.circuitos AS 
+  SELECT DISTINCT C.* FROM (SELECT * FROM tmp.circuitos_diputados UNION SELECT * FROM tmp.circuitos_senadores) C;
 
 COMMIT;
 
