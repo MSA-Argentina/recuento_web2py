@@ -28,7 +28,8 @@ CREATE TEMP SEQUENCE idx_fila;
 
 INSERT INTO 
   listas (id_lista, nro_lista, descripcion, descripcion_corta, positivo, idx_fila, id_partido) 
-  SELECT codigo_partido, agrupacion, 
+  SELECT codigo_partido, 
+         CASE WHEN codigo_partido < 9000 THEN agrupacion ELSE NULL END, 
          COALESCE(lista_interna, partido), 
          SUBSTRING(COALESCE(lista_interna, partido) FROM 1 FOR 25),
          CASE WHEN codigo_partido < 9000 THEN 'T'  /* agrupaciones */
