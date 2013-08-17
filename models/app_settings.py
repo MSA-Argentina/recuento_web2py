@@ -3,7 +3,9 @@
 # Configuraciones globales:
 
 TITULO = "Recuento" 
-SUBTITULO = "Elecciones Nacionales - Republica Argentina - 28 de Octubre 2007"
+SUBTITULO = " - ".join(["Elecciones Nacionales",
+                        "Primarias Abiertas Simultáneas y Obligatorias (PASO)",
+                        "Argentina", "11 de Agosto 2013"])
 
 # cadena de conexion a base principal:
 PG_CNNSTR = "postgres://reingart:clave@localhost/recuento"
