@@ -31,5 +31,19 @@ INSERT INTO cargos (descripcion, descripcion_corta, idx_col) VALUES
     ('Senador Nacional', 'SN', 2),
     ('Diputado Nacional', 'DN', 3);
     
+/* UBICACIONES -arbol jerarquico PAIS/PROVINCIA/DEPARTAMENTO-  */
+
+DELETE FROM ubicaciones;
+INSERT INTO ubicaciones (id_ubicacion, descripcion, clase) VALUES (0, 'ARGENTINA', 'Pais');
+ 
+INSERT INTO ubicaciones (id_ubicacion, descripcion, clase, id_ubicacion_padre)  
+  SELECT codigo_provincia, provincia, 'Provincia', 0 
+  FROM tmp.provincias ORDER BY codigo_provincia;
+
+INSERT INTO ubicaciones (id_ubicacion, descripcion, clase, id_ubicacion_padre)
+  SELECT codigo_provincia*1000 + codigo_departamento,
+         departamento, 'Departamento', codigo_provincia
+  FROM tmp.departamentos ORDER BY codigo_provincia, codigo_departamento;
+
 COMMIT;
 
