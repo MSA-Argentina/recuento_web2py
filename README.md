@@ -15,8 +15,20 @@ Instalación:
  4. Importar los datos (ver carpeta private)
  5. Probar!
 
-Datos de prueba:
-----------------
+Datos de prueba PASO 2013:
+--------------------------
+
+Se está trabajando en procesar los datos de las [P.A.S.O. 2013](http://www.resultados.gob.ar/)
+-elección primarias para senadores y diputados nacionales en las 24 provincias-, 
+publicados en el [Portal de Datos Públicos](http://www.datospublicos.gov.ar/)
+
+Para más información ver carpeta private: 
+ * [Info sobre el Dataset](private/2013-primarias/README.md)
+ * [Script SQL de carga de datos públicos](private/2013-primarias/carga.sql) -para PostgreSQL-
+ * [Script SQL de migración a la aplicación](private/2013-primarias/migracion.sql) -para PostgreSQL-
+
+Datos de prueba 2007:
+---------------------
 
 En el [Hackaton Program.AR](http://datospublicos.gob.ar/hackatonprogramar/) 
 se procesaron los set de datos electorales del futuro portal de 
@@ -24,9 +36,9 @@ se procesaron los set de datos electorales del futuro portal de
 nacional de 2007 (presidente, senadores y diputados).
 
 Ver la carpeta private:
- * [electoral-2003-2011-completo.csv](private/electoral-2003-2011-completo.csv): set de datos completo utilizado
- * [migracion_elecciones_nacionales_2007.sql](private/migracion_elecciones_nacionales_2007.sql): script para procesamiento / normalización
- * [dump_recuento_2007.sql](private/dump_recuento_2007.sql): volcado de la base de datos ya procesada (PostgreSQL)
+ * [electoral-2003-2011-completo.csv](private/2003-2011/electoral-2003-2011-completo.csv): set de datos completo utilizado
+ * [migracion_elecciones_nacionales_2007.sql](private/2003-2011/migracion_elecciones_nacionales_2007.sql): script para procesamiento / normalización
+ * [dump_recuento_2007.sql](private/2003-2011/dump_recuento_2007.sql): volcado de la base de datos ya procesada (PostgreSQL)
 
 Sobre la aplicación:
 --------------------
