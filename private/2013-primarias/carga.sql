@@ -100,16 +100,19 @@ UPDATE tmp.senadores SET codigo_circuito = TRIM(LEADING '0' FROM codigo_circuito
 UPDATE tmp.diputados SET codigo_circuito = TRIM(LEADING '0' FROM codigo_circuito) WHERE codigo_circuito LIKE '0%';
 
 
-/* creo algunas vistas para extraer los circuitos */
+/* creo algunas vistas y tabla para extraer los circuitos/mesas */
 
-CREATE OR REPLACE VIEW tmp.circuitos_senadores AS 
+CREATE OR REPLACE VIEW tmp.mesas_senadores AS 
   SELECT DISTINCT codigo_provincia, codigo_departamento, codigo_circuito, codigo_mesa FROM tmp.senadores;
-CREATE OR REPLACE VIEW tmp.circuitos_diputados AS 
+CREATE OR REPLACE VIEW tmp.mesas_diputados AS 
   SELECT DISTINCT codigo_provincia, codigo_departamento, codigo_circuito, codigo_mesa FROM tmp.diputados;
 
-CREATE OR REPLACE VIEW tmp.circuitos AS 
-  SELECT DISTINCT C.* FROM (SELECT * FROM tmp.circuitos_diputados UNION SELECT * FROM tmp.circuitos_senadores) C
+CREATE TABLE tmp.mesas AS 
+  SELECT DISTINCT C.* FROM (SELECT * FROM tmp.mesas_diputados UNION SELECT * FROM tmp.mesas_senadores) C
   ORDER BY codigo_provincia, codigo_departamento, codigo_mesa;
+
+/* agrego la columna de ubicacion de la app para simplificar consultas*/
+ALTER TABLE tmp.mesas ADD COLUMN id_ubicacion INTEGER;   
 
 COMMIT;
 

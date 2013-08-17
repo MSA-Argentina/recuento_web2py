@@ -51,7 +51,7 @@ ALTER SEQUENCE ubicaciones_id_ubicacion_seq RESTART 100000;
 
 INSERT INTO ubicaciones (descripcion, clase, id_ubicacion_padre)
   SELECT DISTINCT codigo_circuito, 'Circuito', codigo_provincia*1000 + codigo_departamento
-  FROM tmp.circuitos;
+  FROM tmp.mesas;
   
 /* mesas - reinicio la secuencia autonumerica para el id */
 
@@ -59,10 +59,28 @@ ALTER SEQUENCE ubicaciones_id_ubicacion_seq RESTART 200000;
 
 INSERT INTO ubicaciones (descripcion, clase, id_ubicacion_padre)
   SELECT DISTINCT codigo_mesa, 'Mesa', U.id_ubicacion
-  FROM tmp.circuitos, ubicaciones U
+  FROM tmp.mesas, ubicaciones U
   WHERE U.clase='Circuito' AND U.descripcion=codigo_circuito
-    AND U.id_ubicacion_padre=codigo_provincia*1000 + codigo_departamento
+    AND U.id_ubicacion_padre = codigo_provincia*1000 + codigo_departamento
   ORDER BY U.id_ubicacion, codigo_mesa::INTEGER;
-    
+
+/* actualizo tabla temporal de mesas para simplificar consultas de inserción */
+
+UPDATE tmp.mesas SET id_ubicacion = M.id_ubicacion
+  FROM ubicaciones M INNER JOIN ubicaciones C 
+                             ON M.id_ubicacion_padre = C.id_ubicacion
+  WHERE tmp.mesas.codigo_mesa = M.descripcion::INTEGER
+    AND M.clase = 'Mesa'
+    AND C.clase = 'Circuito'
+    AND C.id_ubicacion_padre = codigo_provincia*1000 + codigo_departamento;
+
+/* PLANILLAS (datos generales de cada telegrama) */
+
+DELETE FROM planillas;
+ALTER SEQUENCE planillas_id_planilla_seq RESTART 1; 
+INSERT INTO planillas (id_ubicacion, id_estado, definitivo)
+     SELECT T.id_ubicacion, 'Publicada', 'F'
+     FROM tmp.mesas T;
+
 COMMIT;
 
