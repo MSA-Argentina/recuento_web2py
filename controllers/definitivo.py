@@ -114,7 +114,7 @@ def cargar():
                    _width="60%", _rowspan=len(listas)+1),
                 TH("Nº"),
                 TH("Descripción"),
-                [TH(cargo.id_cargo)
+                [TH(cargo.descripcion_corta)
                     for cargo in cargos],
             )]
     # recorro las listas y cargos armando la tabla
