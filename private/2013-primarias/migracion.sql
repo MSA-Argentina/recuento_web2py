@@ -49,13 +49,15 @@ COPY tmp.partidos
 /* resultados para senadores: crear tabla e importar datos publicos */
 
 CREATE TABLE tmp.senadores (
-    codigo_provincia INTEGER,
+    codigo_provincia INTEGER REFERENCES tmp.provincias(codigo_provincia),
     codigo_departamento INTEGER,
     codigo_circuito VARCHAR(5),
     codigo_mesa INTEGER,
-    codigo_partido INTEGER,
+    codigo_partido INTEGER REFERENCES tmp.partidos(codigo_partido),
     votos INTEGER NOT NULL CHECK (votos BETWEEN 0 AND 999),
-    PRIMARY KEY (codigo_provincia, codigo_mesa, codigo_partido)
+    PRIMARY KEY (codigo_provincia, codigo_mesa, codigo_partido),
+    FOREIGN KEY (codigo_provincia, codigo_departamento) 
+     REFERENCES tmp.departamentos(codigo_provincia, codigo_departamento)
 );
 
 COPY tmp.senadores
@@ -70,13 +72,15 @@ COPY tmp.senadores
 /* resultados para diputados: crear tabla e importar datos publicos */
 
 CREATE TABLE tmp.diputados (
-    codigo_provincia INTEGER,
+    codigo_provincia INTEGER REFERENCES tmp.provincias(codigo_provincia),
     codigo_departamento INTEGER,
     codigo_circuito VARCHAR(6), /* 1008.0 */
     codigo_mesa INTEGER,
-    codigo_partido INTEGER,
+    codigo_partido INTEGER REFERENCES tmp.partidos(codigo_partido),
     votos INTEGER NOT NULL CHECK (votos BETWEEN 0 AND 999),
-    PRIMARY KEY (codigo_provincia, codigo_departamento, codigo_mesa, codigo_partido)
+    PRIMARY KEY (codigo_provincia, codigo_departamento, codigo_mesa, codigo_partido),
+    FOREIGN KEY (codigo_provincia, codigo_departamento)
+     REFERENCES tmp.departamentos(codigo_provincia, codigo_departamento)
 );
 
 COPY tmp.diputados
