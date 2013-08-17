@@ -46,5 +46,26 @@ COPY tmp.partidos
     WITH ( FORMAT CSV, HEADER );
 
 
+/* resultados para senadores: crear tabla e importar datos publicos */
+
+CREATE TABLE tmp.senadores (
+    codigo_provincia INTEGER,
+    codigo_departamento INTEGER,
+    codigo_circuito VARCHAR(5),
+    codigo_mesa INTEGER,
+    codigo_partido INTEGER,
+    votos INTEGER NOT NULL CHECK (votos BETWEEN 0 AND 999),
+    PRIMARY KEY (codigo_provincia, codigo_mesa, codigo_partido)
+);
+
+COPY tmp.senadores
+    FROM '/home/reingart/web2py/applications/recuento_web2py/private/2013-primarias/electoral-paso-2013-senadores-01-a-02.csv' 
+    WITH ( FORMAT CSV, HEADER );
+
+COPY tmp.senadores
+    FROM '/home/reingart/web2py/applications/recuento_web2py/private/2013-primarias/electoral-paso-2013-senadores-03-a-24.csv' 
+    WITH ( FORMAT CSV, HEADER );
+
+
 COMMIT;
 
