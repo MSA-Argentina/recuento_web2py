@@ -112,6 +112,14 @@ INSERT INTO planillas_det (id_planilla, id_cargo, id_lista, votos_definitivos)
                        INNER JOIN listas L ON L.id_lista = T.codigo_partido
   ORDER BY P.id_ubicacion, T.codigo_partido;
 
+/* Listas y cargos habilitados por ubicación (por ahora, copia de planillas) */ 
+
+DELETE FROM carg_list_ubic;
+ALTER SEQUENCE carg_list_ubic_id_seq RESTART 1;
+INSERT INTO carg_list_ubic (id_ubicacion, id_cargo, id_lista)
+  SELECT P.id_ubicacion, PD.id_cargo, PD.id_lista  
+    FROM planillas P 
+         INNER JOIN planillas_det PD ON P.id_planilla = PD.id_planilla;
 
 COMMIT;
 
