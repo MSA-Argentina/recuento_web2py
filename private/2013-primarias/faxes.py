@@ -25,11 +25,16 @@ for filename in os.listdir(FAX_DIR):
     i = filename.index(".")
     mesa = filename[i-4:i]
     # busco el id_planilla / id_ubicacion según la mesa (si existe)
-    cur.execute("SELECT P.id_planilla FROM tmp.mesas M "
+    cur.execute("SELECT P.id_planilla, T.id FROM tmp.mesas M "
                 " INNER JOIN planillas P ON M.id_ubicacion = P.id_ubicacion "
+                " LEFT JOIN telegramas T ON T.id_planilla = P.id_planilla "
                 "WHERE M.codigo_provincia=%s AND M.codigo_departamento=%s "
                 "  AND M.codigo_mesa=%s", [prov, dpto, mesa])
     row = cur.fetchone()
+    # si hay registros y ya esta cargado el id de telegrama, paso al siguiente:
+    if row and row[1]:
+        print "ya insertado", filename
+        continue
     id_ubicacion = row and row[0] or None
     # insertar el registro en la b.d.
     print "insertando", prov, dpto, mesa, filename, id_ubicacion, len(bytes)
