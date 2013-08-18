@@ -83,15 +83,14 @@ msa.define_table('planillas_det',
 
 msa.define_table('telegramas',
     Field('id', type='id'),
-    Field('timestamp', type='string', length=25),
-    Field('path_raw', type='upload', length=256),
-    Field('pagina_raw', type='string', length=20),
-    Field('imagen', type='string'), #TODO: revisar blob
+    Field('ts', type='datetime', default=request.now),
+    Field('path', type='upload', length=256),
+    Field('imagen', type='text'),  # bytea TODO: blob_decode
     Field('id_planilla', type=msa.planillas),
     Field('estado', ),
-    Field('observaciones', type='string', length=255),
+    Field('observaciones', type='text'),
     Field('id_reconocido', type='string', length=5),
-    migrate=migrate)
+    migrate=False)
 
 # Dhondt:
 
