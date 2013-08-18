@@ -3,8 +3,9 @@
 
 import psycopg2
 import os
+import sys
 
-FAX_DIR = "faxes"
+FAX_DIR = sys.argv[1:] and sys.argv[1] or "faxes"
 
 # abrir conexion a la base de datos:
 con = psycopg2.connect(dbname="recuento")
@@ -23,11 +24,15 @@ for filename in os.listdir(FAX_DIR):
     dpto = filename[2:5]
     i = filename.index(".")
     mesa = filename[i-4:i]
-    # busco el id_planilla / id_ubicacion según la mesa
-    ##cur.execute("SELECT id_ubicacion FROM ubicaciones U WHERE clase = ...')
-    id_ubicacion = 31414
+    # busco el id_planilla / id_ubicacion según la mesa (si existe)
+    cur.execute("SELECT P.id_planilla FROM tmp.mesas M "
+                " INNER JOIN planillas P ON M.id_ubicacion = P.id_ubicacion "
+                "WHERE M.codigo_provincia=%s AND M.codigo_departamento=%s "
+                "  AND M.codigo_mesa=%s", [prov, dpto, mesa])
+    row = cur.fetchone()
+    id_ubicacion = row and row[0] or None
     # insertar el registro en la b.d.
-    print "insertando", prov, dpto, mesa, filename, len(bytes)
+    print "insertando", prov, dpto, mesa, filename, id_ubicacion, len(bytes)
     cur.execute(
         "INSERT INTO telegramas (path, imagen, id_planilla, estado, ts) "
         "VALUES (%s, %s, %s, 'Activa', now())", 
