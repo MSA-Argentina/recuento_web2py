@@ -2,9 +2,9 @@
 
 # Configuraciones globales:
 
-TITULO = "Recuento" 
+TITULO = "Recuento PASO 2013" 
 SUBTITULO = " - ".join(["Elecciones Nacionales",
-                        "Primarias Abiertas Simultáneas y Obligatorias (PASO)",
+                        "Primarias Abiertas Simultáneas y Obligatorias",
                         "Argentina", "11 de Agosto 2013"])
 
 # cadena de conexion a base principal:
