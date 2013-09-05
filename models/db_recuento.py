@@ -1,6 +1,6 @@
 # coding: utf8
 
-migrate = True     # cambiar a True para crear / modificar las tablas
+migrate = False     # cambiar a True para crear / modificar las tablas
 
 # base de datos de postgresql! (esquema MSA) configurar en app_settings.py
 
@@ -90,7 +90,7 @@ msa.define_table('telegramas',
     Field('estado', ),
     Field('observaciones', type='text'),
     Field('id_reconocido', type='string', length=5),
-    migrate=False)
+    migrate=migrate)
 
 # Dhondt:
 
